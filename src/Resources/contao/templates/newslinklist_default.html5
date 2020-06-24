@@ -1,0 +1,19 @@
+<div class="<?= $this->class ?> newslinklist_default block"<?= $this->cssID ?> style="<?php if ($this->margin): ?><?= trim($this->margin) ?><?php endif; ?> <?php if($this->style): ?><?= $this->style ?><?php endif; ?>">
+
+	<?php if($this->headline): ?>
+		<<?php echo $this->hl; ?>><?= $this->headline ?></<?= $this->hl ?>>
+	<?php endif; ?>
+
+	<ul>
+	<?php
+		if(is_array($this->link))
+		{
+			for($x=0;$x<count($this->link);$x++)
+			{
+				echo '<li><b>'.$this->date[$x].'</b> <a href="'.$this->link[$x].'">'.$this->newsHeadline[$x].'</a></li>';
+			}
+		}
+	?>
+	</ul>
+
+</div>
