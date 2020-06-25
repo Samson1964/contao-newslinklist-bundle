@@ -32,7 +32,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['newslinklist_tpl'] = array
 	'options_callback'     => array('tl_content_newslinklist', 'getNewslinklistTemplates'),
 	'eval'                 => array('tl_class'=>'w50'),
 	'sql'                  => "varchar(32) NOT NULL default ''"
-); 
+);
 
 // Nachrichtenliste anzeigen
 // Fix 'class'=>'clr' nach 'tl_class'=>'long clr', sh. https://github.com/contao/core/issues/8584
@@ -44,7 +44,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['newslinklist'] = array
 	'options_callback'     => array('tl_content_newslinklist', 'getNewslinklist'),
 	'inputType'            => 'checkboxWizard',
 	'eval'                 => array('mandatory'=>false, 'multiple'=>true, 'tl_class'=>'clr long'),
-	'sql'                  => "blob NULL", 
+	'sql'                  => "blob NULL",
 );
 
 class tl_content_newslinklist extends Backend
@@ -62,17 +62,17 @@ class tl_content_newslinklist extends Backend
 	public function getNewslinklistTemplates()
 	{
 		return $this->getTemplateGroup('newslinklist_');
-	} 
+	}
 
 	public function getStartstopinfo($varValue, DataContainer $dc)
 	{
 		if($dc->activeRecord)
-		{ 
+		{
 			//echo "<pre>";
-			//print_r($GLOBALS['TL_DCA'][$dc->table]['fields']['newslinklist_start']); 
+			//print_r($GLOBALS['TL_DCA'][$dc->table]['fields']['newslinklist_start']);
 			//echo "</pre>";
 			// Start- und Stopwert global speichern
-			if($varValue) 
+			if($varValue)
 				$varValue = strtotime("today", $varValue) + (3600 * 24) - 1;
 			else
 				$varValue = strtotime("today", time()) + (3600 * 24) - 1;
@@ -104,10 +104,10 @@ class tl_content_newslinklist extends Backend
 				$NewsArchiv[$objNewsArchive->id] = $objNewsArchive->title;
 			}
 		}
-		
+
 		$von = $GLOBALS['NEWSLINKLIST']['start'];
 		$bis = $GLOBALS['NEWSLINKLIST']['stop'];
-		
+
 		$array = array();
 		if($von && $bis)
 		{
@@ -131,7 +131,7 @@ class tl_content_newslinklist extends Backend
 			// Veröffentlichungsstatus ermitteln
 			if((!$objNews->start || $objNews->start < time()) && (!$objNews->stop || $objNews->stop > time()) && $objNews->published) $published = true;
 			else $published = false;
-			
+
 			if($NewsArchiv[$objNews->pid])
 			{
 				if($published) $array[$objNews->id] =  date($GLOBALS['TL_CONFIG']['datimFormat'], $objNews->date).' <b>'.$objNews->headline.'</b> ['.$NewsArchiv[$objNews->pid].']';
@@ -143,5 +143,3 @@ class tl_content_newslinklist extends Backend
 	}
 
 }
-
-?>
