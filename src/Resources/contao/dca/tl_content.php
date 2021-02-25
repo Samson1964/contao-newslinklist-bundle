@@ -17,7 +17,15 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['newslinklist_stopdate'] = array
 	'exclude'              => true,
 	'label'                => &$GLOBALS['TL_LANG']['tl_content']['newslinklist_stopdate'],
 	'inputType'            => 'text',
-	'eval'                 => array('rgxp'=>'date', 'datepicker'=>true, 'tl_class'=>'w50 clr wizard', 'submitOnChange'=>true),
+	'default'              => date('d.m.Y'),
+	'eval'                 => array
+	(
+		'rgxp'             => 'date',
+		'datepicker'       => true,
+		'doNotCopy'        => true,
+		'tl_class'         => 'w50 clr wizard',
+		'submitOnChange'   => true
+	),
 	'load_callback'        => array(array('tl_content_newslinklist', 'getStartstopinfo')),
 	'sql'                  => "varchar(10) NOT NULL default ''"
 );
@@ -30,7 +38,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['newslinklist_tpl'] = array
 	'exclude'              => true,
 	'inputType'            => 'select',
 	'options_callback'     => array('tl_content_newslinklist', 'getNewslinklistTemplates'),
-	'eval'                 => array('tl_class'=>'w50'),
+	'eval'                 => array
+	(
+		'tl_class'         => 'w50'
+	),
 	'sql'                  => "varchar(32) NOT NULL default ''"
 );
 
@@ -43,7 +54,12 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['newslinklist'] = array
 	'exclude'              => true,
 	'options_callback'     => array('tl_content_newslinklist', 'getNewslinklist'),
 	'inputType'            => 'checkboxWizard',
-	'eval'                 => array('mandatory'=>false, 'multiple'=>true, 'tl_class'=>'clr long'),
+	'eval'                 => array
+	(
+		'mandatory'        => false,
+		'multiple'         => true,
+		'tl_class'         => 'clr long'
+	),
 	'sql'                  => "blob NULL",
 );
 
