@@ -17,7 +17,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['newslinklist_stopdate'] = array
 	'exclude'              => true,
 	'label'                => &$GLOBALS['TL_LANG']['tl_content']['newslinklist_stopdate'],
 	'inputType'            => 'text',
-	'default'              => date('d.m.Y'),
+	'default'              => time(),
 	'eval'                 => array
 	(
 		'rgxp'             => 'date',

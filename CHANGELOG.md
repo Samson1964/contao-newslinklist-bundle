@@ -1,5 +1,9 @@
 # Nachrichten-Linkliste
 
+## Version 1.0.3 (2021-07-15)
+
+* Fix: tl_content.newslinklist_stopdate Standardwert korrigiert -> time() statt date('d.m.Y') ist richtig
+
 ## Version 1.0.2 (2021-02-25)
 
 * Change: Stopdatum beim Kopieren des Inhaltselements nicht mitkopieren
