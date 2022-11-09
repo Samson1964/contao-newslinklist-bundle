@@ -1,5 +1,9 @@
 # Nachrichten-Linkliste
 
+## Version 1.0.5 (2021-11-09)
+
+* Fix: Kompatibilität mit PHP 8 hergestellt
+
 ## Version 1.0.4 (2021-11-09)
 
 * Fix: Return value of Contao\CoreBundle\Routing\Page\PageRoute::getUrlSuffix() must be of the type string, null returned in /src/ContentElements/NewsLinkliste.php :: generateFrontendUrl (line 52) (An die Funktion wurde kein PageModel-Objekt übergeben)

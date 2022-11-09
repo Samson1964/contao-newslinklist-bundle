@@ -4,7 +4,7 @@
  * Palettes
  */
 // Palette je nach Nachrichten-Zeitspanne anpassen
-if($GLOBALS['TL_CONFIG']['newslinklist_span'])
+if(isset($GLOBALS['TL_CONFIG']['newslinklist_span']))
 	$GLOBALS['TL_DCA']['tl_content']['palettes']['newslinklist'] = '{type_legend},type,headline;{nll_legend},sortOrder,newslinklist_stopdate,newslinklist_tpl,newslinklist;{protected_legend:hide},protected;{expert_legend:hide},guest,cssID,space;{invisible_legend:hide},invisible,start,stop';
 else
 	$GLOBALS['TL_DCA']['tl_content']['palettes']['newslinklist'] = '{type_legend},type,headline;{nll_legend},sortOrder,newslinklist_tpl,newslinklist;{protected_legend:hide},protected;{expert_legend:hide},guest,cssID,space;{invisible_legend:hide},invisible,start,stop';
