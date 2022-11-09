@@ -41,14 +41,16 @@ class NewsLinkliste extends \ContentElement
 					if($objNewsArchive->numRows == 1)
 					{
 						// Jetzt die Weiterleitungsseite laden
-						$objNewsPage = $this->Database->prepare("SELECT id, alias, title, pageTitle FROM tl_page WHERE id=?")
-						                              ->limit(1)
-						                              ->execute($objNewsArchive->jumpTo);
-						if($objNewsPage->numRows == 1)
+						//$objNewsPage = $this->Database->prepare("SELECT id, alias, title, pageTitle FROM tl_page WHERE id=?")
+						//                              ->limit(1)
+						//                              ->execute($objNewsArchive->jumpTo);
+						$objNewsPage = \PageModel::findByIdOrAlias($objNewsArchive->jumpTo);
+						if($objNewsPage)
 						{
 							// Alle Daten zur Nachricht gefunden
 							// Nachrichtenlink generieren
 							if($GLOBALS['TL_CONFIG']['useAutoItem'])
+								//$temp = \StringUtil::ampersand($objNewsPage->getFrontendUrl('/'.(($objNews->alias && !\Config::get('disableAlias')) ? $objNews->alias : $objNews->id)));
 								$temp = ampersand($this->generateFrontendUrl($objNewsPage->row(), '/' . ((strlen($objNews->alias) && !$GLOBALS['TL_CONFIG']['disableAlias']) ? $objNews->alias : $objNews->id)));
 							else
 								$temp = ampersand($this->generateFrontendUrl($objNewsPage->row(), '/items/' . ((strlen($objNews->alias) && !$GLOBALS['TL_CONFIG']['disableAlias']) ? $objNews->alias : $objNews->id)));

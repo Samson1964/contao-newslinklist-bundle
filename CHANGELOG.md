@@ -1,5 +1,9 @@
 # Nachrichten-Linkliste
 
+## Version 1.0.4 (2021-11-09)
+
+* Fix: Return value of Contao\CoreBundle\Routing\Page\PageRoute::getUrlSuffix() must be of the type string, null returned in /src/ContentElements/NewsLinkliste.php :: generateFrontendUrl (line 52) (An die Funktion wurde kein PageModel-Objekt übergeben)
+
 ## Version 1.0.3 (2021-07-15)
 
 * Fix: tl_content.newslinklist_stopdate Standardwert korrigiert -> time() statt date('d.m.Y') ist richtig
