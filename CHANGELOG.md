@@ -1,5 +1,9 @@
 # Nachrichten-Linkliste
 
+## Version 1.0.6 (2022-11-11)
+
+* Change: Abhängigkeit PHP-Version aufgehoben
+
 ## Version 1.0.5 (2021-11-09)
 
 * Fix: Kompatibilität mit PHP 8 hergestellt
